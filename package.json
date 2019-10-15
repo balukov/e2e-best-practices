@@ -1,0 +1,44 @@
+{
+  "name": "wdio-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate e2e tests for Webdriverio",
+  "author": "Ivan Balukov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balukov/wdio-boilerplate/issues"
+  },
+  "homepage": "https://github.com/balukov/wdio-boilerplate#readme",
+  "scripts": {
+    "test": "wdio ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balukov/wdio-boilerplate.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "mocha",
+    "chai",
+    "allure",
+    "page",
+    "object"
+  ],
+  "dependencies": {
+    "@types/chai": "4.2.3",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.7.5",
+    "@wdio/allure-reporter": "^5.12.1",
+    "@wdio/cli": "^5.13.1",
+    "@wdio/local-runner": "^5.13.1",
+    "@wdio/mocha-framework": "^5.12.1",
+    "@wdio/selenium-standalone-service": "^5.12.1",
+    "@wdio/spec-reporter": "^5.12.1",
+    "@wdio/sync": "^5.13.0",
+    "chai": "4.2.0",
+    "mocha": "6.2.0",
+    "ts-node": "8.3.0",
+    "tsconfig-paths": "3.8.0",
+    "typescript": "3.5.3",
+    "webdriverio": "5.13.1"
+  }
+}
