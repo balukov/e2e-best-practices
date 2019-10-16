@@ -1,4 +1,4 @@
-# wdio-boilerplate
+# Webdriver.io boilerplate project with best practices for e2e tests
 
 ## Installation
 
