@@ -1,16 +1,10 @@
-## [Unreleased]
+## v0.0.2 (2019-10-17)
 
 ### Added
 
 - Changelog
 - Linter
 - Prettier
-- Page object
-- Component system for page object
-- Allure report
-- Automatic screenshots
-- Visual tests (screenshot comparation)
-- Accessibility tests
 
 ## v0.0.1 (2019-10-15)
 
