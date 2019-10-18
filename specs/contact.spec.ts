@@ -1,17 +1,17 @@
 import { expect } from 'chai';
 
 import index from '@pages/index.page';
+import contact from '@pages/contact.page';
 
-const title = () => $('//h1');
+const header = 'CUSTOMER SERVICE - CONTACT US';
 
-describe('Contact form', () => {
-  before('Open contact form', () => {
+describe('Contact page', () => {
+  before('Open contact page', () => {
     browser.url('');
-
     index.navigationMenu().clickContactUs();
   });
 
-  it('Contact form should contain title', () => {
-    expect(title().getText()).to.equal('CUSTOMER SERVICE - CONTACT US');
+  it('Contact page should contain title', () => {
+    expect(contact.pageHeader().getTitle()).to.equal(header);
   });
 });
