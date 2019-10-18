@@ -1,6 +1,6 @@
 {
   "name": "wdio-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Boilerplate e2e tests for Webdriverio",
   "author": "Ivan Balukov",
   "license": "MIT",
@@ -9,7 +9,20 @@
   },
   "homepage": "https://github.com/balukov/wdio-boilerplate#readme",
   "scripts": {
-    "test": "wdio ./wdio.conf.js"
+    "test": "wdio ./wdio.conf.js",
+    "tslint": "tslint --project tsconfig.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint",
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -40,5 +53,12 @@
     "tsconfig-paths": "3.8.0",
     "typescript": "3.5.3",
     "webdriverio": "5.13.1"
+  "devDependencies": {
+    "husky": "3.0.9",
+    "lint-staged": "9.4.2",
+    "prettier": "1.18.2",
+    "tslint": "5.20.0",
+    "tslint-config-airbnb": "5.11.2",
+    "tslint-config-prettier": "1.18.0"
   }
 }
