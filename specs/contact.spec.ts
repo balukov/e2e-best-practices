@@ -1,19 +1,17 @@
-const reporter = require('@wdio/allure-reporter').default;
 import { expect } from 'chai';
 
-const contactUs = () => $('//*[@id="contact-link"]');
+import index from '@pages/index.page';
+
 const title = () => $('//h1');
 
-describe(`Contact form`, () => {
+describe('Contact form', () => {
   before('Open contact form', () => {
     browser.url('');
-    contactUs().click();
+
+    index.navigationMenu().clickContactUs();
   });
 
   it('Contact form should contain title', () => {
-    reporter.addFeature('Contact form');
-    reporter.addStory('Title');
-
     expect(title().getText()).to.equal('CUSTOMER SERVICE - CONTACT US');
   });
 });
