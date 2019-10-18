@@ -1,4 +1,5 @@
 class NavigationMenu {
+  private phone = () => $('//*[@class="shop-phone"]/strong');
   private contactUs = () => $('//*[@id="contact-link"]');
   private signIn = () => $('//*[@id="contact-link"]');
 
@@ -8,6 +9,10 @@ class NavigationMenu {
 
   clickSignIn() {
     this.signIn().click();
+  }
+
+  getPhone() {
+    return this.phone().getText();
   }
 }
 
