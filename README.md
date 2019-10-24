@@ -1,8 +1,14 @@
 # The boilerplate project with advice best practices for e2e tests
 
-This project is not just instruction about best practices or just boilerplate with code ready to use. It's an alliance for both. The code was written total with these instructions and instructions contain specific examples from boilerplate.  
-The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be use for other programming languages with the addition of adjustments.  
+This project is not just instruction about best practices or just boilerplate with ready to use code. It's an alliance for both. The code was written total with these instructions and instructions contain specific examples from boilerplate.
+
+If you don't understand how somesthing work in the code - look this guide with description and reasons why I did that. If you don't understand guide - look the code with full files.
+
+The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be use for other programming languages with the addition of adjustments.
+
 The project uses the mock site https://www.saucedemo.com for demo tests. To test your project you should modify the pages, components and, of course, tests.
+
+All tests 100% work.
 
 ## Features
 
@@ -22,7 +28,7 @@ Use typings - fewer bugs in developing, smart suggests
 
 getButton(productName: string): string {
   const productIndex = this.getProductIndex(productName);
-  return this.addToCartButton(productIndex).getText();
+  return this.productButtons()[productIndex].getText();
 }
 ```
 
@@ -168,9 +174,10 @@ Husky runs linter and prettier automatically before commit because without autor
   ```typescript
   // pages/components/list.page.ts
 
-  private product = '//*[@class="inventory_item"]';
+  private list = () => $('//*[@class="inventory_list"]');
 
-  private productList = () => $$(`${this.product}//*[@class="inventory_item_name"]`);
+  private productNames = () => this.list().$$(`//*[@class="inventory_item_name"]`);
+  private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventory")]`);
   ```
 
   </details>
@@ -219,15 +226,11 @@ Husky runs linter and prettier automatically before commit because without autor
 ## Installation
 
 ```
-
 npm i
-
 ```
 
 ## Running tests
 
 ```
-
 npm test
-
 ```
