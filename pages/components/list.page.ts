@@ -3,10 +3,10 @@ class List {
   // Selectors
   // ================================================================================
 
-  private list = '//*[@class="inventory_list"]';
+  private list = () => $('//*[@class="inventory_list"]');
 
-  private productNames = () => $$(`${this.list}//*[@class="inventory_item_name"]`);
-  private addToCartButtons = () => $$(`${this.list}//*[contains(@class,"btn_inventory")]`);
+  private productNames = () => this.list().$$(`//*[@class="inventory_item_name"]`);
+  private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventory")]`);
 
   // ================================================================================
   // Selector actions
@@ -28,12 +28,12 @@ class List {
 
   addToCart(productName: string) {
     const productIndex = this.getProductIndex(productName);
-    this.addToCartButtons()[productIndex].click();
+    this.productButtons()[productIndex].click();
   }
 
   getButton(productName: string): string {
     const productIndex = this.getProductIndex(productName);
-    return this.addToCartButtons()[productIndex].getText();
+    return this.productButtons()[productIndex].getText();
   }
 }
 
