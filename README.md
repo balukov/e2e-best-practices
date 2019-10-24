@@ -12,7 +12,21 @@ The important thing that tests are a project. Not just a suite of tests which do
 
 #### 1.1. Typings
 
-Fewer bugs in developing, smart suggest
+Use typings - fewer bugs in developing, smart suggests
+
+  <details>
+  <summary>Real example</summary>
+
+```typescript
+// pages/components/list.page.ts
+
+getButton(productName: string): string {
+  const productIndex = this.getProductIndex(productName);
+  return this.addToCartButton(productIndex).getText();
+}
+```
+
+  </details>
 
 #### 1.2. Linter
 
@@ -39,7 +53,8 @@ Husky runs linter and prettier automatically before commit because without autor
 
   - App-pages (simple start -> complicate continue): app divides to real pages, each file contain tests for the page where did the last action in the test
 
-    _Example_
+    <details>
+    <summary>Real example</summary>
 
     ```
     .
@@ -51,9 +66,12 @@ Husky runs linter and prettier automatically before commit because without autor
     └── ...
     ```
 
+    </details>
+
   - App-actions (complicate start -> simple continue) - app divides to user actions parts, imagine how user can use your app
 
-    _Example_
+    <details>
+    <summary>Example</summary>
 
     ```
     .
@@ -63,45 +81,65 @@ Husky runs linter and prettier automatically before commit because without autor
     │ ├── crud-goods.spec           # Create-Read-Update-Delete for item
     │ └── purchase-cancel.spec      # Cancelation actions
     └── ...
-
     ```
+
+    </details>
 
 - import pages what you need at top file
 
-  _Example_
+  <details>
+  <summary>Real example</summary>
 
   ```typescript
+  // specs/products.spec.ts
+
   import index from '@pages/index.page';
   import products from '@pages/products.page';
   ```
 
+  </details>
+
 - one describe per file
 
-  _Example_
+  <details>
+  <summary>Real example</summary>
 
   ```typescript
+  // specs/products.spec.ts
+
   describe('Products page', () => {
     ...
   }
   ```
 
+  </details>
+
 - preconditions: open app URL, authorization, open page for a test
 
-  _Example_
+  <details>
+  <summary>Real example</summary>
 
   ```typescript
+  // specs/products.spec.ts
+
   before('Open index page', () => {
     browser.url('');
     index.loginForm().authStandardUser();
   });
   ```
 
+  </details>
+
 - test step structure: page.component.step
 
-  _Example_
+  <details>
+  <summary>Real example</summary>
 
   ```typescript
+  // specs/products.spec.ts
+
   index.loginForm().authStandardUser();
+
   products.list().addToCart(productName);
   ```
 
@@ -109,23 +147,67 @@ Husky runs linter and prettier automatically before commit because without autor
 
 - import all components for page
 
-  _Example_
+  <details>
+  <summary>Real example</summary>
 
   ```typescript
-  import topMenu from '@components/top-menu.page';
+  // pages/products.page.ts
+
   import list from '@components/list.page';
   ```
 
+  </details>
+
 #### 2.4. Component structure
 
-- let component xPath
+- let xPath for components and add path to the every interact element
+
+  <details>
+  <summary>Real example</summary>
+
+  ```typescript
+  // pages/components/list.page.ts
+
+  private product = '//*[@class="inventory_item"]';
+
+  private productList = () => $$(`${this.product}//*[@class="inventory_item_name"]`);
+  ```
+
+  </details>
+
 - component file contains steps, selector actions, selectors
 
 #### 2.5. Selectors
 
 - use XPath
 - set asterisk for selectors - it helps if the app will be refactored
-- add data-test for elements - ask developers or do it yourself it makes the call selectors easier
+
+  <details>
+  <summary>Real example</summary>
+
+  ```typescript
+  private product = '//*[@class="inventory_item"]';
+  ```
+
+  </details>
+
+- Add data-test for elements where it's possible.
+  Ask developers or do it yourself. It makes the call selectors easier.
+
+  <details>
+  <summary>Real example</summary>
+
+  ```html
+  <!-- element on page -->
+  <input type="text" class="form_input" data-test="username" id="user-name" placeholder="Username" value="" />
+  ```
+
+  ```typescript
+  // selector
+  private username = () => $('//*[@data-test="username"]');
+  ```
+
+  </details>
 
 ### Coming soon
 
