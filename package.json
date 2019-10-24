@@ -5,9 +5,9 @@
   "author": "Ivan Balukov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/balukov/wdio-boilerplate/issues"
+    "url": "https://github.com/balukov/e2e-best-practices/issues"
   },
-  "homepage": "https://github.com/balukov/wdio-boilerplate#readme",
+  "homepage": "https://github.com/balukov/e2e-best-practices#readme",
   "scripts": {
     "test": "wdio ./wdio.conf.js",
     "tslint": "tslint --project tsconfig.json"
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/balukov/wdio-boilerplate.git"
+    "url": "git+https://github.com/balukov/e2e-best-practices.git"
   },
   "keywords": [
     "webdriverio",
