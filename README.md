@@ -70,7 +70,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
   _Example_
 
-  ```
+  ```typescript
   import index from '@pages/index.page';
   import products from '@pages/products.page';
   ```
@@ -79,7 +79,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
   _Example_
 
-  ```
+  ```typescript
   describe('Products page', () => {
     ...
   }
@@ -89,7 +89,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
   _Example_
 
-  ```
+  ```typescript
   before('Open index page', () => {
     browser.url('');
     index.loginForm().authStandardUser();
@@ -100,9 +100,9 @@ Husky runs linter and prettier automatically before commit because without autor
 
   _Example_
 
-  ```
-    index.loginForm().authStandardUser();
-    products.list().addToCart(productName);
+  ```typescript
+  index.loginForm().authStandardUser();
+  products.list().addToCart(productName);
   ```
 
 #### 2.3. Page structure
@@ -111,7 +111,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
   _Example_
 
-  ```
+  ```typescript
   import topMenu from '@components/top-menu.page';
   import list from '@components/list.page';
   ```
