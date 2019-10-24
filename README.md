@@ -1,4 +1,4 @@
-# Boilerplate project with best practices for e2e tests
+# The boilerplate project with descriptions best practices for e2e tests
 
 This project is not just instruction about best practices or just boilerplate with code ready to use. It's an alliance for both. The code was written total with these instructions and instructions contain specific examples from boilerplate.  
 The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be use for other programming languages with the addition of adjustments.  
