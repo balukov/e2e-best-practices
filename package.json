@@ -1,7 +1,7 @@
 {
   "name": "wdio-boilerplate",
-  "version": "0.0.2",
-  "description": "Boilerplate e2e tests for Webdriverio",
+  "version": "0.0.3",
+  "description": "The boilerplate project with descriptions best practices for e2e tests",
   "author": "Ivan Balukov",
   "license": "MIT",
   "bugs": {
