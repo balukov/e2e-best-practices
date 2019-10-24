@@ -1,7 +1,7 @@
 {
   "name": "wdio-boilerplate",
   "version": "0.0.3",
-  "description": "The boilerplate project with descriptions best practices for e2e tests",
+  "description": "The boilerplate project with advice best practices for e2e tests",
   "author": "Ivan Balukov",
   "license": "MIT",
   "bugs": {
