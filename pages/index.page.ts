@@ -1,8 +1,8 @@
-import navigationMenu from '@components/navigation-menu.page';
+import loginForm from '@components/login-form.page';
 
 class Index {
-  public navigationMenu() {
-    return navigationMenu;
+  public loginForm() {
+    return loginForm;
   }
 }
 
