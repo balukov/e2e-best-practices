@@ -2,9 +2,9 @@
 
 This project is not just instruction about best practices or just boilerplate with ready to use code. It's an alliance for both. The code was written total with these instructions and instructions contain specific examples from boilerplate.
 
-If you don't understand how somesthing work in the code - look this guide with description and reasons why I did that. If you don't understand guide - look the code with full files.
+If you don't understand how something works in the code - look this guide with description and reasons why I did that. If you don't understand the guide - look the code with full files.
 
-The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be use for other programming languages with the addition of adjustments.
+The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be used for other programming languages with the addition of adjustments.
 
 The project uses the mock site https://www.saucedemo.com for demo tests. To test your project you should modify the pages, components and, of course, tests.
 
@@ -166,7 +166,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
 #### 2.4. Component structure
 
-- let xPath for components and add path to the every interact element
+- let xPath for components and add the path to begin the every interact element
 
   <details>
   <summary>Real example</summary>
@@ -198,7 +198,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
   </details>
 
-- Add data-test for elements where it's possible.
+- Add "data-test" for elements where it's possible.
   Ask developers or do it yourself. It makes the call selectors easier.
 
   <details>
