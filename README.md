@@ -1,10 +1,10 @@
-# The boilerplate project with advice best practices for e2e tests
+# The boilerplate with advice best practices for e2e tests
 
-This project is not just instruction about best practices or just boilerplate with ready to use code. It's an alliance for both. The code was written total with these instructions and instructions contain specific examples from boilerplate.
+This project is not just the instruction about the best practices or just the boilerplate with ready to use code. It's an alliance for both. The code was written a total with these instructions which contain specific examples from boilerplate.
 
-If you don't understand how something works in the code - look this guide with description and reasons why I did that. If you don't understand the guide - look the code with full files.
+If you don't understand how something works in the code - look this guide with the description and reasons why I did that. If you don't understand the guide - look the code with full files.
 
-The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be used for other programming languages with the addition of adjustments.
+The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be used for other programming languages with adjustments.
 
 The project uses the mock site https://www.saucedemo.com for demo tests. To test your project you should modify the pages, components and, of course, tests.
 
