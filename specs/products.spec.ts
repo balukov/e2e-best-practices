@@ -4,10 +4,10 @@
 
 import { expect } from 'chai';
 
-const productName = 'Sauce Labs Bolt T-Shirt';
-
 import index from '@pages/index.page';
 import products from '@pages/products.page';
+
+const productName = 'Sauce Labs Bolt T-Shirt';
 
 describe('Products page', () => {
   before('Open index page', () => {
