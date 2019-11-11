@@ -70,6 +70,7 @@ getButton(productName: string): string {
 
 Function getButton() can take an only string and return only strings.
 
+[pages/components/list.page.ts](pages/components/list.page.ts#L34)
 
 ---
 
@@ -89,6 +90,7 @@ Function getButton() can take an only string and return only strings.
 
 The rule does not allow us to commit to the repository .only (). Because only tests with .only () will be run. And we want to run all.
 
+[tslint.json](tslint.json#L13)
 
 ---
 
@@ -210,6 +212,7 @@ before('Open index page', () => {
 });
 ```
 
+[specs/products.spec.ts](specs/products.spec.ts#L13)
 
 ---
 
@@ -227,12 +230,14 @@ index.loginForm().authStandardUser();
 ```
 
 
+[specs/products.spec.ts](specs/products.spec.ts#L15)
 
 ```typescript
 products.list().addToCart(productName);
 ```
 
 
+[specs/products.spec.ts](specs/products.spec.ts#L19)
 
 ---
 
@@ -251,6 +256,7 @@ products.list().addToCart(productName);
 import list from '@components/list.page';
 ```
 
+[pages/products.page.ts](pages/products.page.ts#L1)
 
 ---
 
@@ -273,6 +279,8 @@ private list = () => $('//*[@class="inventory_list"]');
 private productNames = () => this.list().$$(`//*[@class="inventory_item_name"]`);
 private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventory")]`);
 ```
+
+[pages/components/list.page.ts](pages/components/list.page.ts#L6)
 
 ---
 
@@ -297,6 +305,8 @@ It helps if the app will be refactored
 private list = () => $('//*[@class="inventory_list"]');
 ```
 
+[pages/components/list.page.ts](pages/components/list.page.ts#L6)
+
 ---
 
 </details>
@@ -319,6 +329,8 @@ Ask developers or do it yourself. It makes the call selectors easier.
 // selector
 private username = () => $('//*[@data-test="username"]');
 ```
+
+[pages/components/login-form.page.ts](pages/components/login-form.page.ts#L6)
 
 ---
 
