@@ -349,6 +349,7 @@ private username = () => $('//*[@data-test="username"]');
 
 ## Coming soon
 
+- Pictures for visualizing the structure
 - Clear and readable report
 - Accessibility tests
 - Visual comparison tests
