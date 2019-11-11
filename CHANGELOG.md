@@ -1,3 +1,14 @@
+## v0.0.4 (2019-11-11)
+
+### Added
+
+- Links to files for examples
+
+### Changed
+
+- New examples style
+- New titles structure
+
 ## v0.0.3 (2019-10-24)
 
 ### Added
