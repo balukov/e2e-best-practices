@@ -1,30 +1,43 @@
 # The boilerplate with advice best practices for e2e tests
 
-This project is not just the instruction about the best practices or just the boilerplate with ready to use code. It's an alliance for both. The code was written a total with these instructions which contain specific examples from boilerplate.
+## 1. Introduction
 
-If you don't understand how something works in the code - look this guide with the description and reasons why I did that. If you don't understand the guide - look the code with full files.
+This project is not just the instruction about the best practices or just the boilerplate with ready to use code.
+It's an alliance for both.
+Code = advices, advices = code.
+The code was written a total with this advice which contains specific examples from boilerplate.
 
-The project is written using framework Webdriver.io for Node.js and Typescript. But every advice can be used for other programming languages with adjustments.
 
-The project uses the mock site https://www.saucedemo.com for demo tests. To test your project you should modify the pages, components and, of course, tests.
+
+If you don't understand the guide - look the code with full files.
+If you don't understand how something works in the code - look this guide with the description and reasons why I did that.
+
+The project is written using framework Webdriver.io for Node.js and Typescript.
+But every advice can be used for other programming languages with adjustments.
+
+The project uses the mock site https://www.saucedemo.com for demo tests.
+To test your project you should modify the pages, components and, of course, tests.
 
 All tests 100% work.
 
-## Features
 
-### 1. Developers standards
+### 1.1. Installation
 
-The important thing that tests are a project. Not just a suite of tests which do some magic and talk "green" or "red". It's a real project with its architecture, rules of code, running, configuration
+```
+npm i
+```
 
-#### 1.1. Typings
+### 1.2. Running tests
 
-Use typings - fewer bugs in developing, smart suggests
+```
+npm test
+```
 
-  <details>
-  <summary>Real example</summary>
+## 2. Developers standards
 
-```typescript
-// pages/components/list.page.ts
+The important thing that tests are a **project**. Not just a suite of tests which do some magic and talk "green" or "red". It's a real project with its architecture, rules of code, running, configuration. And for convenient maintenance, development, and teamwork you need to use the same rules as for the common project.
+
+### 2.1. Typings
 
 getButton(productName: string): string {
   const productIndex = this.getProductIndex(productName);
@@ -33,27 +46,36 @@ getButton(productName: string): string {
 ```
 
   </details>
+### 2.2. Static code analysis (Linter)
 
-#### 1.2. Linter
 
-Static analysis of code doesn't
 
-#### 1.3. Prettier
+
+### 2.3. Prettier
 
 Prettier makes code beautiful and consistently if many developers work with the project.
 
-#### 1.4. Autorun
+### 2.4. Autorun
 
 Husky runs linter and prettier automatically before commit because without autorun everybody forgets runs.
 
-### 2. Page object component system
+## 3. Project structure
 
-#### 2.1. Project structure
+<!-- Test suite -> tests -> pages -> components -> steps -> selector actions -> selectors -->
+
+### 3.1. Folder "tests" structure
+
+There are two options for storing tests in files: app-pages and app-actions.
+
+#### 3.1.1 App-pages
+
+App divides to real pages, each file contains tests for the page where did the last action in the test. Simple to start, complicate continue.
+
+
 
 - test -> pages -> components -> steps -> selector actions -> selectors
 - special folders for tests, pages and components
 
-#### 2.2. Test structure
 
 - there are two types of tests system: app-pages and app-actions.
 
@@ -90,8 +112,9 @@ Husky runs linter and prettier automatically before commit because without autor
     ```
 
     </details>
+### 4.2. Test structure
 
-- import pages what you need at top file
+#### 4.2.1. Import pages what you need in the test at top file
 
   <details>
   <summary>Real example</summary>
@@ -105,13 +128,13 @@ Husky runs linter and prettier automatically before commit because without autor
 
   </details>
 
-- one describe per file
 
   <details>
   <summary>Real example</summary>
 
   ```typescript
   // specs/products.spec.ts
+#### 4.2.2. One describe per file
 
   describe('Products page', () => {
     ...
@@ -135,6 +158,7 @@ Husky runs linter and prettier automatically before commit because without autor
   ```
 
   </details>
+#### 4.2.3. Use preconditions
 
 - test step structure: page.component.step
 
@@ -149,12 +173,12 @@ Husky runs linter and prettier automatically before commit because without autor
   products.list().addToCart(productName);
   ```
 
-#### 2.3. Page structure
 
 - import all components for page
 
   <details>
   <summary>Real example</summary>
+#### 4.2.4 Test step structure: page.component.step
 
   ```typescript
   // pages/products.page.ts
@@ -164,7 +188,6 @@ Husky runs linter and prettier automatically before commit because without autor
 
   </details>
 
-#### 2.4. Component structure
 
 - let xPath for components and add the path to begin the every interact element
 
@@ -183,8 +206,9 @@ Husky runs linter and prettier automatically before commit because without autor
   </details>
 
 - component file contains steps, selector actions, selectors
+### 4.3. Page structure
 
-#### 2.5. Selectors
+#### 4.3.1 Import all components for page
 
 - use XPath
 - set asterisk for selectors - it helps if the app will be refactored
@@ -208,29 +232,30 @@ Husky runs linter and prettier automatically before commit because without autor
   <!-- element on page -->
   <input type="text" class="form_input" data-test="username" id="user-name" placeholder="Username" value="" />
   ```
+### 4.4. Component structure
 
   ```typescript
   // selector
   private username = () => $('//*[@data-test="username"]');
   ```
+#### 4.4.1. All selectors begin with the component selector
 
   </details>
 
-### Coming soon
 
-- Clear and readable report
-- Accessibility tests
-- Visual comparison tests
-- Docker container for CI
 
-## Installation
 
 ```
-npm i
+#### 4.4.2. Component file contains steps, selector actions, selectors
+
+### 4.5. Selector structure
+
+#### 4.5.1. Use XPath
+
+#### 4.5.2. Set asterisk for selectors
 ```
 
-## Running tests
 
+#### 4.5.3. Add "data-test" for elements where it's possible.
 ```
-npm test
 ```
