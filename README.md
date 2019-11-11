@@ -347,3 +347,9 @@ private username = () => $('//*[@data-test="username"]');
 
 </details>
 
+## Coming soon
+
+- Clear and readable report
+- Accessibility tests
+- Visual comparison tests
+- Docker container for CI
