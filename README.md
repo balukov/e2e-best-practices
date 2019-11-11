@@ -7,7 +7,23 @@ It's an alliance for both.
 Code = advices, advices = code.
 The code was written a total with this advice which contains specific examples from boilerplate.
 
+All examples are hidden under text with arrow like this:
 
+ <details>
+ <summary>Real example (click for expand)</summary>
+
+---
+
+```
+example of the code
+```
+
+Explanation if necessary
+
+
+---
+
+ </details>
 
 If you don't understand the guide - look the code with full files.
 If you don't understand how something works in the code - look this guide with the description and reasons why I did that.
@@ -39,17 +55,44 @@ The important thing that tests are a **project**. Not just a suite of tests whic
 
 ### 2.1. Typings
 
+
+ <details>
+ <summary>Real example</summary>
+
+---
+
+```typescript
 getButton(productName: string): string {
-  const productIndex = this.getProductIndex(productName);
-  return this.productButtons()[productIndex].getText();
+ const productIndex = this.getProductIndex(productName);
+ return this.productButtons()[productIndex].getText();
 }
 ```
 
-  </details>
+Function getButton() can take an only string and return only strings.
+
+
+---
+
+ </details>
+
 ### 2.2. Static code analysis (Linter)
 
 
+ <details>
+ <summary>Real example</summary>
 
+---
+
+```json
+ "mocha-avoid-only": true
+```
+
+The rule does not allow us to commit to the repository .only (). Because only tests with .only () will be run. And we want to run all.
+
+
+---
+
+ </details>
 
 ### 2.3. Prettier
 
@@ -71,181 +114,170 @@ There are two options for storing tests in files: app-pages and app-actions.
 
 App divides to real pages, each file contains tests for the page where did the last action in the test. Simple to start, complicate continue.
 
+<details>
+<summary>Real example</summary>
 
+---
 
-- test -> pages -> components -> steps -> selector actions -> selectors
-- special folders for tests, pages and components
+```
+.
+├── ...
+├── specs # Test files
+│ ├── index.spec # Tests for index page
+│ ├── products.spec # Tests for product page
+│ └── cart.spec # Tests for cart page
+└── ...
+```
 
+---
 
-- there are two types of tests system: app-pages and app-actions.
+</details>
 
-  - App-pages (simple start -> complicate continue): app divides to real pages, each file contain tests for the page where did the last action in the test
+#### 3.1.2. App-actions
 
-    <details>
-    <summary>Real example</summary>
+App divides to user action parts, imagine how a user can use your app. Complicate to start, simple to continue.
 
-    ```
-    .
-    ├── ...
-    ├── specs                       # Test files
-    │   ├── index.spec              # Tests for index page
-    │   ├── products.spec           # Tests for product page
-    │   └── cart.spec               # Tests for cart page
-    └── ...
-    ```
+<details>
+<summary>Example</summary>
 
-    </details>
+---
 
-  - App-actions (complicate start -> simple continue) - app divides to user actions parts, imagine how user can use your app
+```
+.
+├── ...
+├── specs # Test files
+│ ├── download.spec # Tests for downloads files
+│ ├── crud-goods.spec # Create-Read-Update-Delete for item
+│ └── purchase-cancel.spec # Cancelation actions
+└── ...
+```
 
-    <details>
-    <summary>Example</summary>
+---
 
-    ```
-    .
-    ├── ...
-    ├── specs                       # Test files
-    │ ├── download.spec             # Tests for downloads files
-    │ ├── crud-goods.spec           # Create-Read-Update-Delete for item
-    │ └── purchase-cancel.spec      # Cancelation actions
-    └── ...
-    ```
+</details>
 
-    </details>
 ### 4.2. Test structure
 
 #### 4.2.1. Import pages what you need in the test at top file
 
-  <details>
-  <summary>Real example</summary>
+<details>
+<summary>Real example</summary>
 
-  ```typescript
-  // specs/products.spec.ts
+---
 
-  import index from '@pages/index.page';
-  import products from '@pages/products.page';
-  ```
+```typescript
+import index from '@pages/index.page';
+import products from '@pages/products.page';
+```
 
-  </details>
+[specs/products.spec.ts](specs/products.spec.ts#L7)
 
+---
 
-  <details>
-  <summary>Real example</summary>
+</details>
 
-  ```typescript
-  // specs/products.spec.ts
 #### 4.2.2. One describe per file
 
-  describe('Products page', () => {
-    ...
-  }
-  ```
+<details>
+<summary>Real example</summary>
 
-  </details>
+---
 
-- preconditions: open app URL, authorization, open page for a test
+```typescript
+describe('Products page', () => {
+ // tests
+}
+```
 
-  <details>
-  <summary>Real example</summary>
+[specs/products.spec.ts](specs/products.spec.ts#L12)
 
-  ```typescript
-  // specs/products.spec.ts
+---
 
-  before('Open index page', () => {
-    browser.url('');
-    index.loginForm().authStandardUser();
-  });
-  ```
+</details>
 
-  </details>
 #### 4.2.3. Use preconditions
 
-- test step structure: page.component.step
 
-  <details>
-  <summary>Real example</summary>
+<details>
+<summary>Real example</summary>
 
-  ```typescript
-  // specs/products.spec.ts
+---
 
+```typescript
+before('Open index page', () => {
+  browser.url('');
   index.loginForm().authStandardUser();
+});
+```
 
-  products.list().addToCart(productName);
-  ```
 
+---
 
-- import all components for page
+</details>
 
-  <details>
-  <summary>Real example</summary>
 #### 4.2.4 Test step structure: page.component.step
 
-  ```typescript
-  // pages/products.page.ts
+<details>
+<summary>Real example</summary>
 
-  import list from '@components/list.page';
-  ```
+---
 
-  </details>
+```typescript
+index.loginForm().authStandardUser();
+```
 
 
-- let xPath for components and add the path to begin the every interact element
 
-  <details>
-  <summary>Real example</summary>
+```typescript
+products.list().addToCart(productName);
+```
 
-  ```typescript
-  // pages/components/list.page.ts
 
-  private list = () => $('//*[@class="inventory_list"]');
 
-  private productNames = () => this.list().$$(`//*[@class="inventory_item_name"]`);
-  private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventory")]`);
-  ```
+---
 
-  </details>
+</details>
 
-- component file contains steps, selector actions, selectors
 ### 4.3. Page structure
 
 #### 4.3.1 Import all components for page
 
-- use XPath
-- set asterisk for selectors - it helps if the app will be refactored
+<details>
+<summary>Real example</summary>
 
-  <details>
-  <summary>Real example</summary>
+---
 
-  ```typescript
-  private product = '//*[@class="inventory_item"]';
-  ```
+```typescript
+import list from '@components/list.page';
+```
 
-  </details>
 
-- Add "data-test" for elements where it's possible.
-  Ask developers or do it yourself. It makes the call selectors easier.
+---
 
-  <details>
-  <summary>Real example</summary>
+</details>
 
-  ```html
-  <!-- element on page -->
-  <input type="text" class="form_input" data-test="username" id="user-name" placeholder="Username" value="" />
-  ```
 ### 4.4. Component structure
 
-  ```typescript
-  // selector
-  private username = () => $('//*[@data-test="username"]');
-  ```
 #### 4.4.1. All selectors begin with the component selector
 
-  </details>
+Let xPath for components and add the path to begin the every interact element
 
+<details>
+<summary>Real example</summary>
 
+---
 
+```typescript
+private list = () => $('//*[@class="inventory_list"]');
 
+private productNames = () => this.list().$$(`//*[@class="inventory_item_name"]`);
+private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventory")]`);
 ```
+
+---
+
+</details>
+
 #### 4.4.2. Component file contains steps, selector actions, selectors
 
 ### 4.5. Selector structure
@@ -253,9 +285,42 @@ App divides to real pages, each file contains tests for the page where did the l
 #### 4.5.1. Use XPath
 
 #### 4.5.2. Set asterisk for selectors
+
+It helps if the app will be refactored
+
+<details>
+<summary>Real example</summary>
+
+---
+
+```typescript
+private list = () => $('//*[@class="inventory_list"]');
 ```
 
+---
+
+</details>
 
 #### 4.5.3. Add "data-test" for elements where it's possible.
+
+Ask developers or do it yourself. It makes the call selectors easier.
+
+<details>
+<summary>Real example</summary>
+
+---
+
+```html
+<!-- element on page -->
+<input type="text" class="form_input" data-test="username" id="user-name" placeholder="Username" value="" />
 ```
+
+```typescript
+// selector
+private username = () => $('//*[@data-test="username"]');
 ```
+
+---
+
+</details>
+
