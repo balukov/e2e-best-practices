@@ -20,6 +20,7 @@ example of the code
 
 Explanation if necessary
 
+[Link to the real place in the file with this code]()
 
 ---
 
@@ -36,6 +37,7 @@ To test your project you should modify the pages, components and, of course, tes
 
 All tests 100% work.
 
+Feel free to create issues with questions and additions.
 
 ### 1.1. Installation
 
@@ -55,6 +57,7 @@ The important thing that tests are a **project**. Not just a suite of tests whic
 
 ### 2.1. Typings
 
+If your language support typings it is necessary to use it - fewer bugs in developing, smart suggests. This project uses Typescript and typings uses everywhere.
 
  <details>
  <summary>Real example</summary>
@@ -78,6 +81,7 @@ Function getButton() can take an only string and return only strings.
 
 ### 2.2. Static code analysis (Linter)
 
+It helps to avoid common language mistakes, make rules specifically for the project.
 
  <details>
  <summary>Real example</summary>
@@ -199,6 +203,7 @@ describe('Products page', () => {
 
 #### 4.2.3. Use preconditions
 
+Actions in app which should be done before test starts. Usually these are: open app URL -> authorization -> open page for a test (if it is needed)
 
 <details>
 <summary>Real example</summary>
@@ -229,6 +234,9 @@ before('Open index page', () => {
 index.loginForm().authStandardUser();
 ```
 
+page is "index"
+component is "loginForm"
+step is "authStandardUser"
 
 [specs/products.spec.ts](specs/products.spec.ts#L15)
 
@@ -236,6 +244,9 @@ index.loginForm().authStandardUser();
 products.list().addToCart(productName);
 ```
 
+page is "products"
+component is "list"
+step is "addToCart"
 
 [specs/products.spec.ts](specs/products.spec.ts#L19)
 
