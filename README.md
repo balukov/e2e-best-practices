@@ -118,7 +118,7 @@ There are two options for storing tests in files: app-pages and app-actions.
 
 🔘 App-pages
 
-App divides to real pages, each file contains tests for the page where did the last action in the test. Simple to start, complicate continue.
+The app divides into real pages, each file contains tests for the page where did the last action in the test. Simple to start, complicate continue.
 
 <details>
 <summary>Real example</summary>
@@ -141,7 +141,7 @@ App divides to real pages, each file contains tests for the page where did the l
 
 🔘 App-actions
 
-App divides to user action parts, imagine how a user can use your app. Complicate to start, simple to continue.
+The app divides to user action parts, imagine how a user can use your app. Complicate to start, simple to continue.
 
 <details>
 <summary>Example</summary>
@@ -203,7 +203,7 @@ describe('Products page', () => {
 
 #### 🧩 Use preconditions
 
-Actions in app which should be done before test starts. Usually these are: open app URL -> authorization -> open page for a test (if it is needed)
+Actions should be done before the test starts. Usually, these are: open app URL -> authorization -> open page for a test (if it is needed)
 
 <details>
 <summary>Real example</summary>
