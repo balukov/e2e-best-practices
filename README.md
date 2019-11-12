@@ -110,7 +110,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
 <!-- Test suite -> tests -> pages -> components -> steps -> selector actions -> selectors -->
 
-## 3.1. Folders structure
+## 3. Folders structure
 
 ### 🧩 Choose type of storing tests
 
@@ -162,9 +162,9 @@ The app divides to user action parts, imagine how a user can use your app. Compl
 
 </details>
 
-### 3.2. Test structure
+## 4. Test structure
 
-#### 🧩 Import pages what you need in the test at top file
+### 🧩 Import pages what you need in the test at top file
 
 <details>
 <summary>Real example</summary>
@@ -182,7 +182,7 @@ import products from '@pages/products.page';
 
 </details>
 
-#### 🧩 One describe per file
+### 🧩 One describe per file
 
 <details>
 <summary>Real example</summary>
@@ -201,7 +201,7 @@ describe('Products page', () => {
 
 </details>
 
-#### 🧩 Use preconditions
+### 🧩 Use preconditions
 
 Actions should be done before the test starts. Usually, these are: open app URL -> authorization -> open page for a test (if it is needed)
 
@@ -223,7 +223,7 @@ before('Open index page', () => {
 
 </details>
 
-#### 🧩 Test step structure: page.component.step
+### 🧩 Test step structure: page.component.step
 
 <details>
 <summary>Real example</summary>
@@ -254,9 +254,9 @@ step is "addToCart"
 
 </details>
 
-### 3.3. Page structure
+## 4. Page structure
 
-#### 🧩 Import all components for page
+### 🧩 Import all components for page
 
 <details>
 <summary>Real example</summary>
@@ -273,9 +273,9 @@ import list from '@components/list.page';
 
 </details>
 
-### 3.4. Component structure
+## 5. Component structure
 
-#### 🧩 All selectors begin with the component selector
+### 🧩 All selectors begin with the component selector
 
 Let xPath for components and add the path to begin the every interact element
 
@@ -297,13 +297,13 @@ private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventor
 
 </details>
 
-#### 🧩 Component file contains steps, selector actions, selectors
+### 🧩 Component file contains steps, selector actions, selectors
 
-### 3.5. Selector structure
+## 6. Selector structure
 
-#### 🧩 Use XPath
+### 🧩 Use XPath
 
-#### 🧩 Set asterisk for selectors
+### 🧩 Set asterisk for selectors
 
 It helps if the app will be refactored
 
@@ -322,7 +322,7 @@ private list = () => $('//*[@class="inventory_list"]');
 
 </details>
 
-#### 🧩 Add "data-test" for elements where it's possible.
+### 🧩 Add "data-test" for elements where it's possible.
 
 Ask developers or do it yourself. It makes the call selectors easier.
 
