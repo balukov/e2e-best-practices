@@ -114,7 +114,7 @@ Husky runs linter and prettier automatically before commit because without autor
 
 ### 🧩 Choose type of storing tests
 
-There are two options for storing tests in files: app-pages and app-actions.
+There are two options for storing tests in files: app-pages and app-actions. The type of storing depends on the project. Think about the future when you choose. If you want to run tests particularly, which tests should be run? "Profile page tests" which do all checks for the profile page or "Purchase tests" which check all stages for buying. It's not strong definitions and your project can use both simultaneously, it's complicated but it's possible. I recommend starting from app-pages and if you understand this doesn't fit then to switch to app-actions.
 
 🔘 App-pages
 
