@@ -55,7 +55,7 @@ npm test
 
 The important thing that tests are a **project**. Not just a suite of tests which do some magic and talk "green" or "red". It's a real project with its architecture, rules of code, running, configuration. And for convenient maintenance, development, and teamwork you need to use the same rules as for the common project.
 
-### 2.1. Typings
+### 🧩 Typings
 
 If your language support typings it is necessary to use it - fewer bugs in developing, smart suggests. This project uses Typescript and typings uses everywhere.
 
@@ -79,7 +79,7 @@ Function getButton() can take an only string and return only strings.
 
  </details>
 
-### 2.2. Static code analysis (Linter)
+### 🧩 Static code analysis (Linter)
 
 It helps to avoid common language mistakes, make rules specifically for the project.
 
@@ -100,23 +100,23 @@ The rule does not allow us to commit to the repository .only (). Because only te
 
  </details>
 
-### 2.3. Prettier
+### 🧩 Prettier
 
 Prettier makes code beautiful and consistently if many developers work with the project.
 
-### 2.4. Autorun
+### 🧩 Autorun
 
 Husky runs linter and prettier automatically before commit because without autorun everybody forgets runs.
 
-## 3. Project structure
-
 <!-- Test suite -> tests -> pages -> components -> steps -> selector actions -> selectors -->
 
-### 3.1. Folder "tests" structure
+## 3.1. Folders structure
+
+### 🧩 Choose type of storing tests
 
 There are two options for storing tests in files: app-pages and app-actions.
 
-#### 3.1.1 App-pages
+🔘 App-pages
 
 App divides to real pages, each file contains tests for the page where did the last action in the test. Simple to start, complicate continue.
 
@@ -139,7 +139,7 @@ App divides to real pages, each file contains tests for the page where did the l
 
 </details>
 
-#### 3.1.2. App-actions
+🔘 App-actions
 
 App divides to user action parts, imagine how a user can use your app. Complicate to start, simple to continue.
 
@@ -162,9 +162,9 @@ App divides to user action parts, imagine how a user can use your app. Complicat
 
 </details>
 
-### 4.2. Test structure
+### 3.2. Test structure
 
-#### 4.2.1. Import pages what you need in the test at top file
+#### 🧩 Import pages what you need in the test at top file
 
 <details>
 <summary>Real example</summary>
@@ -182,7 +182,7 @@ import products from '@pages/products.page';
 
 </details>
 
-#### 4.2.2. One describe per file
+#### 🧩 One describe per file
 
 <details>
 <summary>Real example</summary>
@@ -201,7 +201,7 @@ describe('Products page', () => {
 
 </details>
 
-#### 4.2.3. Use preconditions
+#### 🧩 Use preconditions
 
 Actions in app which should be done before test starts. Usually these are: open app URL -> authorization -> open page for a test (if it is needed)
 
@@ -223,7 +223,7 @@ before('Open index page', () => {
 
 </details>
 
-#### 4.2.4 Test step structure: page.component.step
+#### 🧩 Test step structure: page.component.step
 
 <details>
 <summary>Real example</summary>
@@ -254,9 +254,9 @@ step is "addToCart"
 
 </details>
 
-### 4.3. Page structure
+### 3.3. Page structure
 
-#### 4.3.1 Import all components for page
+#### 🧩 Import all components for page
 
 <details>
 <summary>Real example</summary>
@@ -273,9 +273,9 @@ import list from '@components/list.page';
 
 </details>
 
-### 4.4. Component structure
+### 3.4. Component structure
 
-#### 4.4.1. All selectors begin with the component selector
+#### 🧩 All selectors begin with the component selector
 
 Let xPath for components and add the path to begin the every interact element
 
@@ -297,13 +297,13 @@ private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventor
 
 </details>
 
-#### 4.4.2. Component file contains steps, selector actions, selectors
+#### 🧩 Component file contains steps, selector actions, selectors
 
-### 4.5. Selector structure
+### 3.5. Selector structure
 
-#### 4.5.1. Use XPath
+#### 🧩 Use XPath
 
-#### 4.5.2. Set asterisk for selectors
+#### 🧩 Set asterisk for selectors
 
 It helps if the app will be refactored
 
@@ -322,7 +322,7 @@ private list = () => $('//*[@class="inventory_list"]');
 
 </details>
 
-#### 4.5.3. Add "data-test" for elements where it's possible.
+#### 🧩 Add "data-test" for elements where it's possible.
 
 Ask developers or do it yourself. It makes the call selectors easier.
 
