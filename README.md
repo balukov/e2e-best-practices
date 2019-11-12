@@ -234,8 +234,8 @@ before('Open index page', () => {
 index.loginForm().authStandardUser();
 ```
 
-page is "index"
-component is "loginForm"
+page is "index"  
+component is "loginForm"  
 step is "authStandardUser"
 
 [specs/products.spec.ts](specs/products.spec.ts#L15)
@@ -244,8 +244,8 @@ step is "authStandardUser"
 products.list().addToCart(productName);
 ```
 
-page is "products"
-component is "list"
+page is "products"  
+component is "list"  
 step is "addToCart"
 
 [specs/products.spec.ts](specs/products.spec.ts#L19)
