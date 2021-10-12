@@ -29,6 +29,7 @@
     "url": "git+https://github.com/balukov/e2e-best-practices.git"
   },
   "keywords": [
+    "best practice",
     "webdriverio",
     "mocha",
     "chai",
