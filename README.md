@@ -86,6 +86,8 @@ Function getButton() can take an only string and return only strings.
 
 ### 🧩 Static code analysis (Linter)
 
+> ⚠️ **Outdated:** TSLint was deprecated in 2019. Use **ESLint** with `@typescript-eslint` instead. For the `.only()` rule, use `eslint-plugin-no-only-tests`.
+
 It helps to avoid common language mistakes, make rules specifically for the project.
 
  <details>
@@ -110,6 +112,8 @@ The rule does not allow us to commit to the repository .only (). Because only te
 Prettier makes code beautiful and consistently if many developers work with the project.
 
 ### 🧩 Autorun
+
+> ⚠️ **Outdated config:** Husky v9+ uses a `.husky/` directory with shell scripts instead of `package.json` hooks. The concept of pre-commit automation is still a best practice.
 
 Husky runs linter and prettier automatically before commit because without autorun everybody forgets runs.
 
@@ -308,7 +312,11 @@ private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventor
 
 ### 🧩 Use XPath
 
+> ⚠️ **Outdated:** XPath is now a last resort. Modern frameworks provide semantic locators — Playwright offers `getByRole()`, `getByText()`, `getByTestId()` which are far more readable and resilient. Prefer CSS selectors or framework-native locators.
+
 ### 🧩 Set asterisk for selectors
+
+> ⚠️ **Outdated:** The `//*[@class="..."]` pattern is brittle with class name changes. Prefer `data-testid` attributes with framework-native locators like `page.getByTestId('inventory-list')`.
 
 It helps if the app will be refactored
 
