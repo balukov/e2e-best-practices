@@ -1,5 +1,10 @@
 # The boilerplate with advice best practices for e2e tests
 
+> **Note (2026):** This guide was written in 2019 using WebdriverIO v5, TSLint, Mocha, and TypeScript 3.6.
+> The **architectural concepts** (Page Object Model, typed tests, component structure, `data-test` attributes, test organization) remain best practices.
+> The **tooling** is outdated — the modern stack is **Playwright + TypeScript 5 + ESLint + Prettier**.
+> Each outdated section below is marked with a ⚠️ note.
+
 ## 1. Introduction
 
 This project is not just the instruction about the best practices or just the boilerplate with ready to use code.
@@ -81,6 +86,8 @@ Function getButton() can take an only string and return only strings.
 
 ### 🧩 Static code analysis (Linter)
 
+> ⚠️ **Outdated:** TSLint was deprecated in 2019. Use **ESLint** with `@typescript-eslint` instead. For the `.only()` rule, use `eslint-plugin-no-only-tests`.
+
 It helps to avoid common language mistakes, make rules specifically for the project.
 
  <details>
@@ -105,6 +112,8 @@ The rule does not allow us to commit to the repository .only (). Because only te
 Prettier makes code beautiful and consistently if many developers work with the project.
 
 ### 🧩 Autorun
+
+> ⚠️ **Outdated config:** Husky v9+ uses a `.husky/` directory with shell scripts instead of `package.json` hooks. The concept of pre-commit automation is still a best practice.
 
 Husky runs linter and prettier automatically before commit because without autorun everybody forgets runs.
 
@@ -303,7 +312,11 @@ private productButtons = () => this.list().$$(`//*[contains(@class,"btn_inventor
 
 ### 🧩 Use XPath
 
+> ⚠️ **Outdated:** XPath is now a last resort. Modern frameworks provide semantic locators — Playwright offers `getByRole()`, `getByText()`, `getByTestId()` which are far more readable and resilient. Prefer CSS selectors or framework-native locators.
+
 ### 🧩 Set asterisk for selectors
+
+> ⚠️ **Outdated:** The `//*[@class="..."]` pattern is brittle with class name changes. Prefer `data-testid` attributes with framework-native locators like `page.getByTestId('inventory-list')`.
 
 It helps if the app will be refactored
 
@@ -347,10 +360,32 @@ private username = () => $('//*[@data-test="username"]');
 
 </details>
 
+## 7. Modern Stack (2026)
+
+If starting a new E2E project today, consider this stack:
+
+- **Playwright** — Fast, reliable, auto-waiting, built-in test runner, trace viewer, codegen
+- **TypeScript 5** — Strict typing with modern features
+- **ESLint** + **Prettier** — Linting and formatting
+- **Husky v9** + **lint-staged** — Pre-commit automation
+- **`data-testid` attributes** — Stable selectors (unchanged from this guide)
+- **Page Object Model** — Still the recommended pattern (unchanged from this guide)
+
+### Key features available in modern frameworks that this guide doesn't cover
+
+- **Auto-waiting** — No more explicit waits or sleep
+- **API mocking** — `page.route()` to intercept network requests
+- **Visual regression** — Built-in screenshot comparison
+- **Accessibility testing** — `@axe-core/playwright`
+- **Parallel execution** — Isolated browser contexts by default
+- **Trace & video recording** — Built-in debugging tools
+
 ## Coming soon
 
+> ⚠️ **Update:** Most of these features are now built into modern frameworks like Playwright:
+> - ~~Accessibility tests~~ → `@axe-core/playwright`
+> - ~~Visual comparison tests~~ → `expect(page).toHaveScreenshot()`
+> - ~~Docker container for CI~~ → Playwright provides official Docker images
+> - ~~Clear and readable report~~ → Playwright HTML Reporter, Trace Viewer
+
 - Pictures for visualizing the structure
-- Clear and readable report
-- Accessibility tests
-- Visual comparison tests
-- Docker container for CI
