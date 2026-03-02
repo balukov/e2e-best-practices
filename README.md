@@ -382,8 +382,10 @@ If starting a new E2E project today, consider this stack:
 
 ## Coming soon
 
+> ⚠️ **Update:** Most of these features are now built into modern frameworks like Playwright:
+> - ~~Accessibility tests~~ → `@axe-core/playwright`
+> - ~~Visual comparison tests~~ → `expect(page).toHaveScreenshot()`
+> - ~~Docker container for CI~~ → Playwright provides official Docker images
+> - ~~Clear and readable report~~ → Playwright HTML Reporter, Trace Viewer
+
 - Pictures for visualizing the structure
-- Clear and readable report
-- Accessibility tests
-- Visual comparison tests
-- Docker container for CI
