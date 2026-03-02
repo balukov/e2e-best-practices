@@ -1,5 +1,10 @@
 # The boilerplate with advice best practices for e2e tests
 
+> **Note (2026):** This guide was written in 2019 using WebdriverIO v5, TSLint, Mocha, and TypeScript 3.6.
+> The **architectural concepts** (Page Object Model, typed tests, component structure, `data-test` attributes, test organization) remain best practices.
+> The **tooling** is outdated — the modern stack is **Playwright + TypeScript 5 + ESLint + Prettier**.
+> Each outdated section below is marked with a ⚠️ note.
+
 ## 1. Introduction
 
 This project is not just the instruction about the best practices or just the boilerplate with ready to use code.
