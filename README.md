@@ -360,6 +360,26 @@ private username = () => $('//*[@data-test="username"]');
 
 </details>
 
+## 7. Modern Stack (2026)
+
+If starting a new E2E project today, consider this stack:
+
+- **Playwright** — Fast, reliable, auto-waiting, built-in test runner, trace viewer, codegen
+- **TypeScript 5** — Strict typing with modern features
+- **ESLint** + **Prettier** — Linting and formatting
+- **Husky v9** + **lint-staged** — Pre-commit automation
+- **`data-testid` attributes** — Stable selectors (unchanged from this guide)
+- **Page Object Model** — Still the recommended pattern (unchanged from this guide)
+
+### Key features available in modern frameworks that this guide doesn't cover
+
+- **Auto-waiting** — No more explicit waits or sleep
+- **API mocking** — `page.route()` to intercept network requests
+- **Visual regression** — Built-in screenshot comparison
+- **Accessibility testing** — `@axe-core/playwright`
+- **Parallel execution** — Isolated browser contexts by default
+- **Trace & video recording** — Built-in debugging tools
+
 ## Coming soon
 
 - Pictures for visualizing the structure
